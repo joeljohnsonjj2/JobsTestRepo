@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Alice Johnson",
+        "job": "Frontend Developer"
+    },
+    {
+        "name": "Bob Smith",
+        "job": "Machine Learning Engineer"
+    },
+    {
+        "name": "Charlie Brown",
+        "job": "Scrum Master"
+    },
+    {
+        "name": "Diana Prince",
+        "job": "Graphic Designer"
+    },
+    {
+        "name": "Ethan Hunt",
+        "job": "Cloud Architect"
+    },
+    {
+        "name": "Fiona Gallagher",
+        "job": "Automation Engineer"
+    },
+    {
+        "name": "George Martin",
+        "job": "Content Strategist"
+    },
+    {
+        "name": "Hannah Baker",
+        "job": "Product Owner"
+    },
+    {
+        "name": "Ian Curtis",
+        "job": "Network Engineer"
+    },
+    {
+        "name": "Jane Doe",
+        "job": "Agile Coach"
+    }
+]

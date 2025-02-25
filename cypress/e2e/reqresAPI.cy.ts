@@ -1,25 +1,17 @@
+import { APIfuncs } from "../Pages/reqresAPI.cy";
+
+const obj1 = new APIfuncs();
+
 describe('regresAPI Testing', () => {
 
     it('Basic GET Request', () => {
-        cy.request({
-            method: 'GET',
-            url: 'https://reqres.in/api/users/2'
-        })
-        .its('status')
-        .should('equal', 200);
+        obj1.getRequest('https://reqres.in/api/users/2', 200);
     });
 
     it('Basic POST Request', () => {
         cy.fixture('users.json').then((users) => {
             users.forEach((user) => {
-                cy.request({
-                    method: 'POST',
-                    url: 'https://reqres.in/api/users',
-                    body: user
-                })
-                .then((response) => {
-                    expect(response.status).to.eq(201);
-                });
+                obj1.postRequest('https://reqres.in/api/users', user, 201);
             });
         });
     });
@@ -27,28 +19,16 @@ describe('regresAPI Testing', () => {
     it('Basic PUT Request', () => {
         cy.fixture('usersUpdate.json').then((users) => {
             users.forEach((user) => {
-                cy.request({
-                    method: 'PUT',
-                    url: `https://reqres.in/api/users/${user.queryParam}`,
-                    body: {
-                        "name": user.name,
-                        "job": user.job
-                    }
-                })
-                .then((response) => {
-                    expect(response.status).to.eq(200);
-                });
+                obj1.putRequest(`https://reqres.in/api/users/${user.queryParam}`, {
+                    "name": user.name,
+                    "job": user.job
+                }, 200);
             });
         });
     });
 
     it('Basic DELETE Request', () => {
-        cy.request({
-            method: 'DELETE',
-            url: 'https://reqres.in/api/users/2'
-        })
-        .its('status')
-        .should('equal', 204);
+        obj1.delRequest('https://reqres.in/api/users/2', 204);
     });
 
     it('Verify User Creation', () => {
@@ -94,15 +74,7 @@ describe('regresAPI Testing', () => {
     it('List User Request Response Validation', () => {
         const pages = [1, 2];
         pages.forEach((page) => {
-            cy.request({
-                method: 'GET',
-                url: `https://reqres.in/api/users?page=${page}`
-            })
-            .then((response) => {
-                expect(response.status).to.eq(200);
-                expect(response.body.page).to.eq(page);
-                expect(response.body.data.length).to.eq(response.body.per_page);
-            });
+            obj1.getRequest(`https://reqres.in/api/users?page=${page}`, 200);
         });
     });
 
@@ -122,19 +94,7 @@ describe('regresAPI Testing', () => {
     });
 
     it('Single User Request Erroneous Response Validation', () => {
-
-        function generateRandomUserIDs(count, min, max, exclude) {
-            const userIDs = [];
-            while (userIDs.length < count) {
-                const randomID = Math.floor(Math.random() * (max - min + 1)) + min;
-                if (!exclude.includes(randomID) && !userIDs.includes(randomID)) {
-                    userIDs.push(randomID);
-                }
-            }
-            return userIDs;
-        }
-
-        const userIDs = generateRandomUserIDs(15, 0, 100, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+        const userIDs = obj1.generateRandomIDs(15, 0, 100, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
         userIDs.forEach((userID) => {
             cy.request({
                 method: 'GET',
@@ -150,15 +110,7 @@ describe('regresAPI Testing', () => {
     it('List Products Request Response Validation', () => {
         const pages = [1, 2];
         pages.forEach((page) => {
-            cy.request({
-                method: 'GET',
-                url: `https://reqres.in/api/products?page=${page}`
-            })
-            .then((response) => {
-                expect(response.status).to.eq(200);
-                expect(response.body.page).to.eq(page);
-                expect(response.body.data.length).to.eq(response.body.per_page);
-            });
+            obj1.getRequest(`https://reqres.in/api/products?page=${page}`, 200);
         });
     });
 
@@ -177,20 +129,8 @@ describe('regresAPI Testing', () => {
         });
     });
 
-    it('Single User Request Erroneous Response Validation', () => {
-
-        function generateRandomUserIDs(count, min, max, exclude) {
-            const userIDs = [];
-            while (userIDs.length < count) {
-                const randomID = Math.floor(Math.random() * (max - min + 1)) + min;
-                if (!exclude.includes(randomID) && !userIDs.includes(randomID)) {
-                    userIDs.push(randomID);
-                }
-            }
-            return userIDs;
-        }
-
-        const prodIDs = generateRandomUserIDs(15, 0, 100, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+    it('Single Product Request Erroneous Response Validation', () => {
+        const prodIDs = obj1.generateRandomIDs(15, 0, 100, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
         prodIDs.forEach((prodID) => {
             cy.request({
                 method: 'GET',

@@ -1,5 +1,4 @@
 import { APIfuncs } from "../Pages/reqresAPI.cy";
-
 const obj1 = new APIfuncs();
 
 describe('regresAPI Testing', () => {
@@ -34,7 +33,7 @@ describe('regresAPI Testing', () => {
     it('Verify User Creation', () => {
         cy.fixture('users.json').then((users) => {
             users.forEach((user) => {
-                obj1.postRequest('https://reqres.in/api/users', user, 201);
+                obj1.postRequest('https://reqres.in/api/users', user, 201);  // make this
             });
         });
     });
@@ -42,7 +41,7 @@ describe('regresAPI Testing', () => {
     it('Verify User Updation', () => {
         cy.fixture('usersUpdate.json').then((users) => {
             users.forEach((user) => {
-                obj1.putRequest(`https://reqres.in/api/users/${user.queryParam}`, {
+                obj1.putRequest(`https://reqres.in/api/users/${user.queryParam}`, {   // make this
                     "name": user.name,
                     "job": user.job
                 }, 200);
@@ -53,7 +52,7 @@ describe('regresAPI Testing', () => {
     it('List User Request Response Validation', () => {
         const pages = [1, 2];
         pages.forEach((page) => {
-            obj1.getRequest(`https://reqres.in/api/users?page=${page}`, 200);
+            obj1.listValidation(`https://reqres.in/api/users?page=${page}`, 200, page);  //make this
         });
     });
 
@@ -74,7 +73,7 @@ describe('regresAPI Testing', () => {
     it('List Products Request Response Validation', () => {
         const pages = [1, 2];
         pages.forEach((page) => {
-            obj1.getRequest(`https://reqres.in/api/products?page=${page}`, 200);
+            obj1.listValidation(`https://reqres.in/api/products?page=${page}`, 200, page);  //make this
         });
     });
 

@@ -85,4 +85,45 @@ export class APIfuncs{
         });
     };
 
+    verifyCreation(url: string, body: any, expectedStatus: number) {
+        cy.request({
+            method: 'POST',
+            url: url,
+            body: body
+        })
+        .then((response) => {
+            expect(response.status).to.eq(expectedStatus);
+            expect(response.body.name).to.eq(body.name);
+            expect(response.body.job).to.eq(body.job);
+            expect(response.body).to.have.property('id');
+            expect(response.body).to.have.property('createdAt');
+        });
+    }
+
+    verifyUpdation(url: string, body: any, expectedStatus: number) {
+        cy.request({
+            method: 'POST',
+            url: url,
+            body: body
+        })
+        .then((response) => {
+            expect(response.status).to.eq(expectedStatus);
+            expect(response.body.name).to.eq(body.name);
+            expect(response.body.job).to.eq(body.job);
+            expect(response.body).to.have.property('updatedAt');
+        });
+    }
+
+    listValidation(url: string, expectedStatus: number, pageValue: number) {
+        cy.request({
+            method: 'GET',
+            url: url
+        })
+        .then((response) => {
+            expect(response.status).to.eq(expectedStatus);
+            expect(response.body.page).to.eq(pageValue);
+            expect(response.body.data.length).to.eq(response.body.per_page);
+        });
+    }
+
 }

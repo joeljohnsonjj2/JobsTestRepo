@@ -53,4 +53,36 @@ export class APIfuncs{
         return ids;
     }
 
+    validateUserResponse = (userID: number) => {
+        cy.request({
+            method: 'GET',
+            url: `https://reqres.in/api/users/${userID}`
+        }).then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body.data.id).to.eq(userID);
+            expect(response.body.data).to.have.all.keys('id', 'email', 'first_name', 'last_name', 'avatar');
+        });
+    };
+    
+    validateProductResponse = (prodID: number) => {
+        cy.request({
+            method: 'GET',
+            url: `https://reqres.in/api/products/${prodID}`
+        }).then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body.data.id).to.eq(prodID);
+            expect(response.body.data).to.have.all.keys('id', 'name', 'year', 'color', 'pantone_value');
+        });
+    };
+    
+    validateErroneousResponse = (url: string) => {
+        cy.request({
+            method: 'GET',
+            url: url,
+            failOnStatusCode: false
+        }).then((response) => {
+            expect(response.status).to.eq(404);
+        });
+    };
+
 }

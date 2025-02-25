@@ -6,6 +6,7 @@ git fetch origin
 git pull origin main
 
 git add .
+git commit -m " "
 git commit -a -m " "
 git push origin main
 

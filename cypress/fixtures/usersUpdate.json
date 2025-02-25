@@ -1,42 +1,52 @@
 [
     {
         "name": "Alice Johnson",
-        "job": "Frontend Developer"
+        "job": "Frontend Developer",
+        "queryParam": 42
     },
     {
         "name": "Bob Smith",
-        "job": "Machine Learning Engineer"
+        "job": "Machine Learning Engineer",
+        "queryParam": 87
     },
     {
         "name": "Charlie Brown",
-        "job": "Scrum Master"
+        "job": "Scrum Master",
+        "queryParam": 23
     },
     {
         "name": "Diana Prince",
-        "job": "Graphic Designer"
+        "job": "Graphic Designer",
+        "queryParam": 56
     },
     {
         "name": "Ethan Hunt",
-        "job": "Cloud Architect"
+        "job": "Cloud Architect",
+        "queryParam": 91
     },
     {
         "name": "Fiona Gallagher",
-        "job": "Automation Engineer"
+        "job": "Automation Engineer",
+        "queryParam": 34
     },
     {
         "name": "George Martin",
-        "job": "Content Strategist"
+        "job": "Content Strategist",
+        "queryParam": 78
     },
     {
         "name": "Hannah Baker",
-        "job": "Product Owner"
+        "job": "Product Owner",
+        "queryParam": 65
     },
     {
         "name": "Ian Curtis",
-        "job": "Network Engineer"
+        "job": "Network Engineer",
+        "queryParam": 12
     },
     {
         "name": "Jane Doe",
-        "job": "Agile Coach"
+        "job": "Agile Coach",
+        "queryParam": 49
     }
 ]

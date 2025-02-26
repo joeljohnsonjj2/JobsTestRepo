@@ -102,7 +102,7 @@ export class APIfuncs{
 
     verifyUpdation(url: string, body: any, expectedStatus: number) {
         cy.request({
-            method: 'POST',
+            method: 'PUT',
             url: url,
             body: body
         })

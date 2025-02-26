@@ -5,6 +5,16 @@ stages:          # List of stages for jobs, and their order of execution
 
 variables:
   CYPRESS_RECORD_KEY: $CYPRESS_RECORD_KEY
+  npm_config_cache: '$CI_PROJECT_DIR/.npm'
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .cache/*
+    - cache/Cypress
+    - node_modules
+    - build
 
 install dependencies:
   image : cypress/browsers

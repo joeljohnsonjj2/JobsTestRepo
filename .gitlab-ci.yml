@@ -6,19 +6,18 @@ stages:          # List of stages for jobs, and their order of execution
 variables:
   CYPRESS_RECORD_KEY: $CYPRESS_RECORD_KEY
 
-build-job:
+install dependencies:
   stage: build
   script:
-    - echo "Compiling the code..."
-    - echo "Compile complete."
+    - npm ci 
+    - npm install mochawesome 
 
 unit-test-job:
   image : cypress/browsers
   stage: test
-  parallel: 3
+  parallel: 5
   script:
-    - npm ci 
-    - npm install mochawesome 
+    - npm start &
     - npx cypress run --record --parallel --reporter mochawesome --reporter-options reportDir=mochawesome-report # run the tests
   artifacts:
     when: always

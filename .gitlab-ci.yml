@@ -29,7 +29,7 @@ unit-test-job:
   parallel: 2
   script:
     - npm start &
-    - npx cypress run --record --parallel --group mainGroup --reporter mochawesome --reporter-options reportDir=mochawesome-report # run the tests
+    - npx cypress run --record --parallel --group mainGroup --reporter mochawesome --reporter-options reportDir=mochawesome-report 
   artifacts:
     when: always
     paths:

@@ -2,6 +2,9 @@ import { urls } from "../Pages/urlRepository.cy";
 
 export class APIfuncs1 {
 
+    randomName = Array.from({ length: 8 }, () => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
+    randomEmail = Math.random().toString(36).substring(7) + "@gmail.com";
+
     checkApiStatus = () => {
         return cy.request({
             method: 'GET',

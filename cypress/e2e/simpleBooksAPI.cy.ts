@@ -3,7 +3,7 @@ const obj1 = new APIfuncs1();
 
 describe('simpleBooksAPI Testing', () => {
 
-    it('Check API Status', () => {
+    before('Check API Status', () => {
         obj1.checkApiStatus().then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body.status).to.eq('OK');
@@ -11,8 +11,10 @@ describe('simpleBooksAPI Testing', () => {
     });
 
     let authToken = null;
-    it('Register API Client / Creating Access Token', () => {
-        obj1.registerApiClient('Joel', Math.random().toString(5).substring(2) + "@gmail.com").then((response) => {
+    before('Register API Client / Creating Access Token', () => {
+        obj1.registerApiClient(obj1.randomName, obj1.randomEmail).then((response) => {
+            expect(response.status).to.eq(201);
+            expect(response.body.accessToken).exist;
             authToken = response.body.accessToken;
         });
     });
@@ -59,7 +61,7 @@ describe('simpleBooksAPI Testing', () => {
     });
 
     let orderId = null;
-    it('Submitting New Order - Positive Case', () => {
+    before('Submitting New Order - Positive Case', () => {
         obj1.submitOrder(authToken, 1, 'allan').then((response) => {
             expect(response.status).to.eq(201);
             expect(response.body.created).to.eq(true);

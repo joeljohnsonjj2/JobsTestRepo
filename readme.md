@@ -4,8 +4,8 @@ This project contains automated tests for API endpoints using Cypress. The tests
 ## Installation
 1. Clone the repository:
     ```sh
-    git clone https://gitlab.com/joeljohnsong10x/swaglabs-cypress.git
-    cd swaglabs-cypress
+    git clone https://gitlab.com/joeljohnsong10x/apitesting.git
+    cd apitesting
     ```
 2. Install dependencies:
     ```sh
@@ -19,10 +19,10 @@ npx cypress run
 ```
 
 ## Test Files
-Reqres API Tests: Located in reqresAPI.cy.ts
-Simple Books API Integration Tests: Located in simpleBooksAPI-integration.cy.ts
-Simple Books API Smoke Tests: Located in simpleBooksAPI-smoke.cy.ts
-Simple Books API Tests: Located in simpleBooksAPI.cy.ts
+Reqres API Tests: Located in reqresAPI.cy.ts <br />
+Simple Books API Integration Tests: Located in simpleBooksAPI-integration.cy.ts <br />
+Simple Books API Smoke Tests: Located in simpleBooksAPI-smoke.cy.ts <br />
+Simple Books API Tests: Located in simpleBooksAPI.cy.ts <br />
 
 ## Fixtures
 Fixtures are located in the fixtures directory and include:

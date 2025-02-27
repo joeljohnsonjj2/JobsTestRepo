@@ -1,16 +1,18 @@
-export class APIfuncs1{
+import { urls } from "../Pages/urlRepository.cy";
+
+export class APIfuncs1 {
 
     checkApiStatus = () => {
         return cy.request({
             method: 'GET',
-            url: 'https://simple-books-api.glitch.me/status',
+            url: urls.status,
         });
     };
     
     registerApiClient = (clientName: string, clientEmail: string) => {
         return cy.request({
             method: 'POST',
-            url: 'https://simple-books-api.glitch.me/api-clients/',
+            url: urls.registerClient,
             headers: { 'Content-Type': 'application/json' },
             body: {
                 "clientName" : clientName,
@@ -22,21 +24,21 @@ export class APIfuncs1{
     fetchAllBooks = () => {
         return cy.request({
             method: 'GET',
-            url: 'https://simple-books-api.glitch.me/books',
+            url: urls.books,
         });
     };
     
     fetchBooksByType = (type: string) => {
         return cy.request({
             method: 'GET',
-            url: `https://simple-books-api.glitch.me/books?type=${type}`,
+            url: urls.booksByType(type),
         });
     };
     
     submitOrder = (authToken: string, bookId: number, customerName: string) => {
         return cy.request({
             method: 'POST',
-            url: 'https://simple-books-api.glitch.me/orders/',
+            url: urls.orders,
             failOnStatusCode: false,
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +54,7 @@ export class APIfuncs1{
     fetchOrder = (authToken: string, orderId: string) => {
         return cy.request({
             method: 'GET',
-            url: `https://simple-books-api.glitch.me/orders/${orderId}`,
+            url: urls.orderById(orderId),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${authToken}`,
@@ -63,7 +65,7 @@ export class APIfuncs1{
     fetchAllOrders = (authToken: string) => {
         return cy.request({
             method: 'GET',
-            url: 'https://simple-books-api.glitch.me/orders/',
+            url: urls.orders,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${authToken}`,
@@ -74,7 +76,7 @@ export class APIfuncs1{
     updateOrder = (authToken: string, orderId: string, customerName: string) => {
         return cy.request({
             method: 'PATCH',
-            url: `https://simple-books-api.glitch.me/orders/${orderId}`,
+            url: urls.orderById(orderId),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${authToken}`,
@@ -88,7 +90,7 @@ export class APIfuncs1{
     deleteOrder = (authToken: string, orderId: string) => {
         return cy.request({
             method: 'DELETE',
-            url: `https://simple-books-api.glitch.me/orders/${orderId}`,
+            url: urls.orderById(orderId),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${authToken}`,

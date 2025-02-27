@@ -12,7 +12,7 @@ describe('simpleBooksAPI Testing', () => {
 
     let authToken = null;
     before('Register API Client / Creating Access Token', () => {
-        obj1.registerApiClient(obj1.randomName, obj1.randomEmail).then((response) => {
+        obj1.registerApiClient(obj1.randomName(), obj1.randomEmail()).then((response) => {
             expect(response.status).to.eq(201);
             expect(response.body.accessToken).exist;
             authToken = response.body.accessToken;
@@ -62,7 +62,7 @@ describe('simpleBooksAPI Testing', () => {
 
     let orderId = null;
     before('Submitting New Order - Positive Case', () => {
-        obj1.submitOrder(authToken, 1, 'allan').then((response) => {
+        obj1.submitOrder(authToken, 1, obj1.randomName()).then((response) => {
             expect(response.status).to.eq(201);
             expect(response.body.created).to.eq(true);
             orderId = response.body.orderId;
@@ -120,5 +120,4 @@ describe('simpleBooksAPI Testing', () => {
             expect(response.status).to.eq(204);
         });
     });
-
 });

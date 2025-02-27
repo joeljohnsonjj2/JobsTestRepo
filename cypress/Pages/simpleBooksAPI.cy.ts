@@ -2,8 +2,13 @@ import { urls } from "../Pages/urlRepository.cy";
 
 export class APIfuncs1 {
 
-    randomName = Array.from({ length: 8 }, () => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
-    randomEmail = Math.random().toString(36).substring(7) + "@gmail.com";
+    randomName() {
+        return Array.from({ length: 8 }, () => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
+    }
+
+    randomEmail() {
+        return Math.random().toString(36).substring(7) + "@gmail.com";
+    }
 
     checkApiStatus = () => {
         return cy.request({
@@ -58,6 +63,7 @@ export class APIfuncs1 {
         return cy.request({
             method: 'GET',
             url: urls.orderById(orderId),
+            failOnStatusCode: false,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${authToken}`,

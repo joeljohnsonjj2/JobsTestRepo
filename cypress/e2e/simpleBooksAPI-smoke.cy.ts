@@ -1,7 +1,7 @@
 import { APIfuncs1 } from '../Pages/simpleBooksAPI.cy';
 const obj1 = new APIfuncs1();
 
-describe('simpleBooksAPI Testing', () => {
+describe('simpleBooksAPI-smoke Testing', () => {
 
     it('Check API Status', () => {
         obj1.checkApiStatus().then((response) => {
@@ -12,7 +12,7 @@ describe('simpleBooksAPI Testing', () => {
 
     let authToken = null;
     it('Register API Client / Creating Access Token', () => {
-        obj1.registerApiClient(obj1.randomName, obj1.randomEmail).then((response) => {
+        obj1.registerApiClient(obj1.randomName(), obj1.randomEmail()).then((response) => {
             expect(response.status).to.eq(201);
             expect(response.body.accessToken).exist;
             authToken = response.body.accessToken;
@@ -21,7 +21,7 @@ describe('simpleBooksAPI Testing', () => {
 
     let orderId = null;
     it('Submitting New Order', () => {
-        obj1.submitOrder(authToken, 1, 'allan').then((response) => {
+        obj1.submitOrder(authToken, 1, obj1.randomName()).then((response) => {
             expect(response.status).to.eq(201);
             expect(response.body.created).to.eq(true);
             orderId = response.body.orderId;

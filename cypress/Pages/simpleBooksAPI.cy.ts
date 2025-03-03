@@ -2,14 +2,17 @@ import { urls } from "../Pages/urlRepository.cy";
 
 export class APIfuncs1 {
 
+    // Generates a random 8-character string consisting of lowercase letters
     randomName() {
         return Array.from({ length: 8 }, () => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
     }
 
+    // Generates a random email address with a gmail.com domain
     randomEmail() {
         return Math.random().toString(36).substring(7) + "@gmail.com";
     }
 
+    // Sends a GET request to check the API status
     checkApiStatus = () => {
         return cy.request({
             method: 'GET',
@@ -17,6 +20,7 @@ export class APIfuncs1 {
         });
     };
     
+    // Sends a POST request to register a new API client with the given name and email
     registerApiClient = (clientName: string, clientEmail: string) => {
         return cy.request({
             method: 'POST',
@@ -29,6 +33,7 @@ export class APIfuncs1 {
         });
     };
     
+    // Sends a GET request to fetch all books
     fetchAllBooks = () => {
         return cy.request({
             method: 'GET',
@@ -36,6 +41,7 @@ export class APIfuncs1 {
         });
     };
     
+    // Sends a GET request to fetch books by a specific type
     fetchBooksByType = (type: string) => {
         return cy.request({
             method: 'GET',
@@ -43,6 +49,7 @@ export class APIfuncs1 {
         });
     };
     
+    // Sends a POST request to submit an order with the given book ID and customer name
     submitOrder = (authToken: string, bookId: number, customerName: string) => {
         return cy.request({
             method: 'POST',
@@ -59,6 +66,7 @@ export class APIfuncs1 {
         });
     };
     
+    // Sends a GET request to fetch a specific order by its ID
     fetchOrder = (authToken: string, orderId: string) => {
         return cy.request({
             method: 'GET',
@@ -71,6 +79,7 @@ export class APIfuncs1 {
         });
     };
     
+    // Sends a GET request to fetch all orders
     fetchAllOrders = (authToken: string) => {
         return cy.request({
             method: 'GET',
@@ -82,6 +91,7 @@ export class APIfuncs1 {
         });
     };
     
+    // Sends a PATCH request to update an order's customer name by its ID
     updateOrder = (authToken: string, orderId: string, customerName: string) => {
         return cy.request({
             method: 'PATCH',
@@ -96,6 +106,7 @@ export class APIfuncs1 {
         });
     };
     
+    // Sends a DELETE request to delete an order by its ID
     deleteOrder = (authToken: string, orderId: string) => {
         return cy.request({
             method: 'DELETE',

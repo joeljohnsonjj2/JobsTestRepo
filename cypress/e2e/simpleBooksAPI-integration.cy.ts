@@ -3,7 +3,7 @@ const obj1 = new APIfuncs1();
 
 describe('simpleBooksAPI-integration Testing', () => {
 
-    it.only('Register Client and Fetch All Books', () => {
+    it('Register Client and Fetch All Books', () => {
         const randomName = obj1.randomName();
         const randomEmail = obj1.randomEmail();
         obj1.registerApiClient(randomName, randomEmail).then((response) => {
@@ -15,7 +15,7 @@ describe('simpleBooksAPI-integration Testing', () => {
         });
     });
     
-    it.only('Register Client, Submit Order, and Fetch Order', () => {
+    it('Register Client, Submit Order, and Fetch Order', () => {
         const randomName = obj1.randomName();
         const randomEmail = obj1.randomEmail();
         obj1.registerApiClient(randomName, randomEmail).then((response) => {
@@ -30,7 +30,7 @@ describe('simpleBooksAPI-integration Testing', () => {
         });
     });
     
-    it.only('Register Client, Submit Order, Update Order, and Fetch Updated Order', () => {
+    it('Register Client, Submit Order, Update Order, and Fetch Updated Order', () => {
         const randomName = obj1.randomName();
         const randomEmail = obj1.randomEmail();
         obj1.registerApiClient(randomName, randomEmail).then((response) => {
@@ -49,7 +49,7 @@ describe('simpleBooksAPI-integration Testing', () => {
         });
     });
     
-    it.only('Register Client, Submit Order, and Delete Order', () => {
+    it('Register Client, Submit Order, and Delete Order', () => {
         const randomName = obj1.randomName();
         const randomEmail = obj1.randomEmail();
         obj1.registerApiClient(randomName, randomEmail).then((response) => {
@@ -66,7 +66,7 @@ describe('simpleBooksAPI-integration Testing', () => {
         });
     });
 
-    it.only('Register Client, Fetch All Books, and Submit Order', () => {
+    it('Register Client, Fetch All Books, and Submit Order', () => {
         const randomName = obj1.randomName();
         const randomEmail = obj1.randomEmail();
         obj1.registerApiClient(randomName, randomEmail).then((response) => {
@@ -81,7 +81,7 @@ describe('simpleBooksAPI-integration Testing', () => {
         });
     });
 
-    it.only('Register Client, Submit Order, Update Order, Fetch Updated Order, and Delete Order', () => {
+    it('Register Client, Submit Order, Update Order, Fetch Updated Order, and Delete Order', () => {
         const randomName = obj1.randomName();
         const randomEmail = obj1.randomEmail();
         obj1.registerApiClient(randomName, randomEmail).then((response) => {
@@ -103,7 +103,7 @@ describe('simpleBooksAPI-integration Testing', () => {
         });
     });
 
-    it.only('Register Client, Fetch All Books, Submit Order, and Fetch Order', () => {
+    it('Register Client, Fetch All Books, Submit Order, and Fetch Order', () => {
         const randomName = obj1.randomName();
         const randomEmail = obj1.randomEmail();
         obj1.registerApiClient(randomName, randomEmail).then((response) => {
@@ -122,7 +122,7 @@ describe('simpleBooksAPI-integration Testing', () => {
         });
     });
 
-    it.only('Register Client, Submit Order, Fetch Order, Update Order, and Fetch Updated Order', () => {
+    it('Register Client, Submit Order, Fetch Order, Update Order, and Fetch Updated Order', () => {
         const randomName = obj1.randomName();
         const randomEmail = obj1.randomEmail();
         obj1.registerApiClient(randomName, randomEmail).then((response) => {

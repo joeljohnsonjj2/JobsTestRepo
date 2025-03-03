@@ -1,5 +1,6 @@
 export class APIfuncs{
 
+    // Sends a GET request to the specified URL and checks if the response status matches the expected status.
     getRequest(url: string, expectedStatus: number) {
         cy.request({
             method: 'GET',
@@ -10,6 +11,7 @@ export class APIfuncs{
         });
     }
     
+    // Sends a POST request to the specified URL with the given body and checks if the response status matches the expected status.
     postRequest(url: string, body: any, expectedStatus: number) {
         cy.request({
             method: 'POST',
@@ -21,6 +23,7 @@ export class APIfuncs{
         });
     }
     
+    // Sends a PUT request to the specified URL with the given body and checks if the response status matches the expected status.
     putRequest(url: string, body: any, expectedStatus: number) {
         cy.request({
             method: 'PUT',
@@ -32,6 +35,7 @@ export class APIfuncs{
         });
     }
 
+    // Sends a DELETE request to the specified URL and checks if the response status matches the expected status.
     delRequest(url: string, expectedStatus: number) {
         cy.request({
             method: 'DELETE',
@@ -42,6 +46,7 @@ export class APIfuncs{
         });
     }
     
+    // Generates an array of unique random IDs within the specified range, excluding certain IDs.
     generateRandomIDs(count: number, min: number, max: number, exclude: number[]) {
         const ids = [];
         while (ids.length < count) {
@@ -53,6 +58,7 @@ export class APIfuncs{
         return ids;
     }
 
+    // Sends a GET request to validate the user response for the given user ID.
     validateUserResponse = (userID: number) => {
         cy.request({
             method: 'GET',
@@ -64,6 +70,7 @@ export class APIfuncs{
         });
     };
     
+    // Sends a GET request to validate the product response for the given product ID.
     validateProductResponse = (prodID: number) => {
         cy.request({
             method: 'GET',
@@ -75,6 +82,7 @@ export class APIfuncs{
         });
     };
     
+    // Sends a GET request to validate the erroneous response for the given URL.
     validateErroneousResponse = (url: string) => {
         cy.request({
             method: 'GET',
@@ -85,6 +93,7 @@ export class APIfuncs{
         });
     };
 
+    // Sends a POST request to verify the creation of a resource and checks if the response matches the expected status and body.
     verifyCreation(url: string, body: any, expectedStatus: number) {
         cy.request({
             method: 'POST',
@@ -100,6 +109,7 @@ export class APIfuncs{
         });
     }
 
+    // Sends a PUT request to verify the updation of a resource and checks if the response matches the expected status and body.
     verifyUpdation(url: string, body: any, expectedStatus: number) {
         cy.request({
             method: 'PUT',
@@ -114,6 +124,7 @@ export class APIfuncs{
         });
     }
 
+    // Sends a GET request to validate the list response and checks if the response matches the expected status and page value.
     listValidation(url: string, expectedStatus: number, pageValue: number) {
         cy.request({
             method: 'GET',

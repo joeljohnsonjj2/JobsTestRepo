@@ -36,6 +36,3 @@ Cypress configuration is defined in cypress.config.ts.
 
 ## CI/CD
 The project uses GitLab CI/CD for continuous integration and deployment. The configuration is defined in .gitlab-ci.yml.
-
-## Test Modification
-Testing Testing

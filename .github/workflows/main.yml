@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
 
-  Dev Environment Running :
+  DevEnvironmentRunning :
     runs-on: windows-latest
     environment: DEV
     steps:
@@ -12,7 +12,7 @@ jobs:
       - run : |
           echo "Running Dev Environment"
 
-  Test Suite Running:
+  TestSuiteRunning:
     runs-on: windows-latest
     environment: QA
     needs: Dev Environment Running

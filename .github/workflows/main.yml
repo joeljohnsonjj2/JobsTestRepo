@@ -15,7 +15,7 @@ jobs:
   TestSuiteRunning:
     runs-on: windows-latest
     environment: QA
-    needs: Dev Environment Running
+    needs: DevEnvironmentRunning
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -25,7 +25,7 @@ jobs:
   Production:
     runs-on: windows-latest
     environment: PROD
-    needs: Test Suite Running
+    needs: TestSuiteRunning
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2

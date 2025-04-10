@@ -1,4 +1,4 @@
-git remote add origin https://gitlab.com/joeljohnsong10x/apitesting.git
+git remote add origin https://github.com/joeljohnsonjj2/JobsTestRepo.git
 git branch -M main
 git push -uf origin main
 

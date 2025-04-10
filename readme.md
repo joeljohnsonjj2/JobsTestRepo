@@ -4,7 +4,7 @@ This project contains automated tests for API endpoints using Cypress. The tests
 ## Installation
 1. Clone the repository:
     ```sh
-    git clone https://gitlab.com/joeljohnsong10x/apitesting.git
+    git clone https://github.com/joeljohnsonjj2/JobsTestRepo.git
     cd apitesting
     ```
 2. Install dependencies:
